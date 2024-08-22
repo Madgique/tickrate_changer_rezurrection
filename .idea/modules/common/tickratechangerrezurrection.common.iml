@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module version="4">
+  <component name="AdditionalModuleElements">
+    <content url="file://$MODULE_DIR$/../../../common" dumb="true">
+      <excludeFolder url="file://$MODULE_DIR$/../../../common/bin" />
+      <excludeFolder url="file://$MODULE_DIR$/../../../common/bin/default" />
+      <excludeFolder url="file://$MODULE_DIR$/../../../common/bin/generated-sources" />
+      <excludeFolder url="file://$MODULE_DIR$/../../../common/bin/generated-test-sources" />
+      <excludeFolder url="file://$MODULE_DIR$/../../../common/bin/test" />
+    </content>
+  </component>
+  <component name="FacetManager">
+    <facet type="minecraft" name="Minecraft">
+      <configuration>
+        <autoDetectTypes>
+          <platformType>ARCHITECTURY</platformType>
+        </autoDetectTypes>
+        <projectReimportVersion>1</projectReimportVersion>
+      </configuration>
+    </facet>
+  </component>
+</module>

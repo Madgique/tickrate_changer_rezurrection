@@ -1,0 +1,9 @@
+# Generated files by MC
+.gradle/
+build/
+run/
+bin/
+
+# IDE
+.vscode/
+.idea/
