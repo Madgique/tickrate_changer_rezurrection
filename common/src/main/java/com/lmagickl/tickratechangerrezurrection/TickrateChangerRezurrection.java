@@ -1,25 +1,24 @@
 package com.lmagickl.tickratechangerrezurrection;
 
-import dev.architectury.networking.NetworkChannel;
-import dev.architectury.networking.NetworkManager;
-import io.netty.buffer.Unpooled;
+import com.lmagickl.tickratechangerrezurrection.mixin.MinecraftAccessor;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.entity.player.Player;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.Timer;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import dev.architectury.platform.Platform;
-import dev.architectury.utils.Env;
-import net.minecraft.client.Minecraft;
+import net.minecraft.resources.ResourceLocation;
 
-public final class TickrateChangerRezurrectionMod {
-    public static TickrateChangerRezurrectionMod INSTANCE;
-    public static final String MOD_ID = "tickratechangerrezurrection";
+
+public final class TickrateChangerRezurrection {
+    public static final String MOD_ID = "tickrate_changer_rezurrection";
+
+    public static TickrateChangerRezurrection INSTANCE;
 
     public static Logger LOGGER = LogManager.getLogger("Tickrate Changer");
     public static TickrateChangerRezurrectionConfig CONFIG = new TickrateChangerRezurrectionConfig();
+    public static final ResourceLocation TICKRATE = new ResourceLocation(MOD_ID, "tickrate");
 
     // Gamerule
     public static final String GAME_RULE = "tickrate";
@@ -41,12 +40,12 @@ public final class TickrateChangerRezurrectionMod {
     // Change sound speed
     public static boolean CHANGE_SOUND = true;
 
-    public static void init() {
-        TickrateChangerRezurrectionEventHandler.INSTANCE.init();
+    public TickrateChangerRezurrection() {
+        INSTANCE = this;
     }
 
-    public static boolean isClient() {
-        return Platform.getEnvironment() == Env.CLIENT;
+    public void init() {
+        TickrateChangerRezurrectionEventHandler.INSTANCE.init();
     }
 
     @Environment(EnvType.CLIENT)
@@ -62,13 +61,17 @@ public final class TickrateChangerRezurrectionMod {
         if (mc == null)
             return; // Wut
 
-//       mc.timer.tickLength = 1000F / tickrate;
+        Timer timer = ((MinecraftAccessor) mc).getTimer();
+
+        // change tickrate client-side
+        ((TickrateChanger) (Object) timer).changeClientTickrate(tickrate, System.currentTimeMillis());
     }
 
     public void updateServerTickrate(float tickrate, boolean log) {
         if (log)
             LOGGER.info("Updating server tickrate to " + tickrate);
 
+        // change tickrate server-side
         MILISECONDS_PER_TICK = (long) (1000L / tickrate);
     }
 }

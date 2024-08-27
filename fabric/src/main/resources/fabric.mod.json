@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "id": "tickratechangerrezurrection",
+  "id": "tickrate_changer_rezurrection",
   "version": "${version}",
-  "name": "TickrateChangerRezurrection",
+  "name": "Tickrate Changer Rezurrection",
   "description": "This is an example description! Tell everyone what your mod is about!",
   "authors": [
     "Me!"
@@ -12,25 +12,25 @@
     "sources": "https://github.com/FabricMC/fabric-example-mod"
   },
   "license": "CC0-1.0",
-  "icon": "assets/tickratechangerrezurrection/icon.png",
+  "icon": "assets/tickrate_changer_rezurrection/icon.png",
   "environment": "*",
   "entrypoints": {
     "main": [
-      "com.lmagickl.tickratechangerrezurrection.fabric.ExampleModFabric"
+      "com.lmagickl.tickratechangerrezurrection.fabric.TickrateChangerRezurrectionFabric"
     ],
     "client": [
-      "com.lmagickl.tickratechangerrezurrection.fabric.client.ExampleModFabricClient"
+      "com.lmagickl.tickratechangerrezurrection.fabric.client.TickrateChangerRezurrectionFabricClient"
     ]
   },
   "mixins": [
-    "tickratechangerrezurrection.mixins.json"
+    "tickrate_changer_rezurrection.mixins.json"
   ],
   "depends": {
-    "fabricloader": ">=0.16.0",
-    "minecraft": "~1.20.1",
-    "java": ">=17",
-    "architectury": ">=9.2.14",
-    "fabric-api": "*"
+    "fabricloader": ">=0.16.2",
+    "minecraft": "~1.16.5",
+    "java": ">=8",
+    "architectury": ">=1.32.68",
+    "fabric": "*"
   },
   "suggests": {
     "another-mod": "*"

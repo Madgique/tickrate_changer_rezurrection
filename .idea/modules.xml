@@ -2,16 +2,15 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/tickratechangerrezurrection.iml" filepath="$PROJECT_DIR$/.idea/tickratechangerrezurrection.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/common/tickratechangerrezurrection.common.iml" filepath="$PROJECT_DIR$/.idea/modules/common/tickratechangerrezurrection.common.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/common/tickratechangerrezurrection.common.main.iml" filepath="$PROJECT_DIR$/.idea/modules/common/tickratechangerrezurrection.common.main.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/common/tickratechangerrezurrection.common.test.iml" filepath="$PROJECT_DIR$/.idea/modules/common/tickratechangerrezurrection.common.test.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/fabric/tickratechangerrezurrection.fabric.iml" filepath="$PROJECT_DIR$/.idea/modules/fabric/tickratechangerrezurrection.fabric.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/fabric/tickratechangerrezurrection.fabric.main.iml" filepath="$PROJECT_DIR$/.idea/modules/fabric/tickratechangerrezurrection.fabric.main.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/fabric/tickratechangerrezurrection.fabric.test.iml" filepath="$PROJECT_DIR$/.idea/modules/fabric/tickratechangerrezurrection.fabric.test.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/forge/tickratechangerrezurrection.forge.iml" filepath="$PROJECT_DIR$/.idea/modules/forge/tickratechangerrezurrection.forge.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/forge/tickratechangerrezurrection.forge.main.iml" filepath="$PROJECT_DIR$/.idea/modules/forge/tickratechangerrezurrection.forge.main.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/forge/tickratechangerrezurrection.forge.test.iml" filepath="$PROJECT_DIR$/.idea/modules/forge/tickratechangerrezurrection.forge.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/common/tickrate_changer_rezurrection.common.iml" filepath="$PROJECT_DIR$/.idea/modules/common/tickrate_changer_rezurrection.common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/common/tickrate_changer_rezurrection.common.main.iml" filepath="$PROJECT_DIR$/.idea/modules/common/tickrate_changer_rezurrection.common.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/common/tickrate_changer_rezurrection.common.test.iml" filepath="$PROJECT_DIR$/.idea/modules/common/tickrate_changer_rezurrection.common.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/fabric/tickrate_changer_rezurrection.fabric.iml" filepath="$PROJECT_DIR$/.idea/modules/fabric/tickrate_changer_rezurrection.fabric.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/fabric/tickrate_changer_rezurrection.fabric.main.iml" filepath="$PROJECT_DIR$/.idea/modules/fabric/tickrate_changer_rezurrection.fabric.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/fabric/tickrate_changer_rezurrection.fabric.test.iml" filepath="$PROJECT_DIR$/.idea/modules/fabric/tickrate_changer_rezurrection.fabric.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/forge/tickrate_changer_rezurrection.forge.iml" filepath="$PROJECT_DIR$/.idea/modules/forge/tickrate_changer_rezurrection.forge.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/forge/tickrate_changer_rezurrection.forge.main.iml" filepath="$PROJECT_DIR$/.idea/modules/forge/tickrate_changer_rezurrection.forge.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/forge/tickrate_changer_rezurrection.forge.test.iml" filepath="$PROJECT_DIR$/.idea/modules/forge/tickrate_changer_rezurrection.forge.test.iml" />
     </modules>
   </component>
 </project>

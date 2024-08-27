@@ -7,7 +7,7 @@ pluginManagement {
     }
 }
 
-rootProject.name = 'tickratechangerrezurrection'
+rootProject.name = 'tickrate_changer_rezurrection'
 
 include 'common'
 include 'fabric'

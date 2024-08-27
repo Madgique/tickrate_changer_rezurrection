@@ -1,17 +1,19 @@
 package com.lmagickl.tickratechangerrezurrection.api;
 
-import com.lmagickl.tickratechangerrezurrection.TickrateChangerRezurrectionMod;
+import com.lmagickl.tickratechangerrezurrection.TickrateChangerRezurrection;
 
 import com.lmagickl.tickratechangerrezurrection.TickrateMessage;
-import dev.architectury.networking.NetworkManager;
-import dev.architectury.platform.Platform;
-import dev.architectury.utils.Env;
-import net.fabricmc.api.EnvType;
+import io.netty.buffer.Unpooled;
+import me.shedaniel.architectury.networking.NetworkManager;
+import me.shedaniel.architectury.platform.Platform;
+import me.shedaniel.architectury.utils.Env;
 import net.minecraft.client.Minecraft;
+import net.minecraft.network.FriendlyByteBuf;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.MinecraftServer;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.entity.player.PlayerModelPart;
-import net.minecraft.world.level.GameRules;
+
 
 public class TickrateAPI {
     /**
@@ -20,7 +22,7 @@ public class TickrateAPI {
      * @param ticksPerSecond Tickrate to be set
      */
     public static void changeTickrate(float ticksPerSecond, MinecraftServer server) {
-        changeTickrate(ticksPerSecond, server, TickrateChangerRezurrectionMod.SHOW_MESSAGES);
+        changeTickrate(ticksPerSecond, server, TickrateChangerRezurrection.SHOW_MESSAGES);
     }
 
     /**
@@ -42,7 +44,7 @@ public class TickrateAPI {
      * @param ticksPerSecond Tickrate to be set
      */
     public static void changeServerTickrate(float ticksPerSecond) {
-        changeServerTickrate(ticksPerSecond, TickrateChangerRezurrectionMod.SHOW_MESSAGES);
+        changeServerTickrate(ticksPerSecond, TickrateChangerRezurrection.SHOW_MESSAGES);
     }
 
     /**
@@ -54,7 +56,7 @@ public class TickrateAPI {
      * @param log            If should send console logs
      */
     public static void changeServerTickrate(float ticksPerSecond, boolean log) {
-        TickrateChangerRezurrectionMod.INSTANCE.updateServerTickrate(ticksPerSecond, log);
+        TickrateChangerRezurrection.INSTANCE.updateServerTickrate(ticksPerSecond, log);
     }
 
     /**
@@ -63,7 +65,7 @@ public class TickrateAPI {
      * @param ticksPerSecond Tickrate to be set
      */
     public static void changeClientTickrate(float ticksPerSecond, MinecraftServer server) {
-        changeClientTickrate(ticksPerSecond, server,TickrateChangerRezurrectionMod.SHOW_MESSAGES);
+        changeClientTickrate(ticksPerSecond, server, TickrateChangerRezurrection.SHOW_MESSAGES);
     }
 
     /**
@@ -74,7 +76,7 @@ public class TickrateAPI {
      */
     public static void changeClientTickrate(float ticksPerSecond, MinecraftServer server, boolean log) {
         if(server != null && server.getPlayerList() != null) { // Is a server or singleplayer
-            for(Player p : server.getPlayerList().getPlayers()) {
+            for(ServerPlayer p : server.getPlayerList().getPlayers()) {
                 changeClientTickrate(p, ticksPerSecond, log);
             }
         } else { // Is in menu or a player connected in a server. We can say this is client.
@@ -91,7 +93,7 @@ public class TickrateAPI {
      * @param ticksPerSecond Tickrate to be set
      */
     public static void changeClientTickrate(Player player, float ticksPerSecond) {
-        changeClientTickrate(player, ticksPerSecond, TickrateChangerRezurrectionMod.SHOW_MESSAGES);
+        changeClientTickrate(player, ticksPerSecond, TickrateChangerRezurrection.SHOW_MESSAGES);
     }
 
     /**
@@ -104,11 +106,14 @@ public class TickrateAPI {
      */
     public static void changeClientTickrate(Player player, float ticksPerSecond, boolean log) {
         if((player == null) || (player.level.isClientSide)) { // Client
-            if(!TickrateChangerRezurrectionMod.isClient()) return;
+            if(Platform.getEnvironment() != Env.CLIENT) return;
             if((player != null) && (player != Minecraft.getInstance().player)) return;
-            TickrateChangerRezurrectionMod.INSTANCE.updateClientTickrate(ticksPerSecond, log);
+            TickrateChangerRezurrection.INSTANCE.updateClientTickrate(ticksPerSecond, log);
         } else { // Server
-            NetworkManager.sendToPlayer(player, new TickrateMessage(ticksPerSecond));
+            FriendlyByteBuf buf = new FriendlyByteBuf(Unpooled.buffer());
+            TickrateMessage message = new TickrateMessage(ticksPerSecond);
+            message.encode(buf);
+            NetworkManager.sendToPlayer((ServerPlayer) player, TickrateChangerRezurrection.TICKRATE, buf);
         }
     }
 
@@ -122,11 +127,11 @@ public class TickrateAPI {
      * @param save           If will be saved in the config file
      */
     public static void changeDefaultTickrate(float ticksPerSecond, boolean save) {
-        TickrateChangerRezurrectionMod.DEFAULT_TICKRATE = ticksPerSecond;
+        TickrateChangerRezurrection.DEFAULT_TICKRATE = ticksPerSecond;
         /*
          * if (save) {
          * Configuration cfg = new
-         * Configuration(TickrateChangerRezurrectionMod.CONFIG_FILE);
+         * Configuration(TickrateChangerRezurrection.CONFIG_FILE);
          * cfg.get("default", "tickrate", 20.0,
          * "Default tickrate. The game will always initialize with this value.")
          * .set(ticksPerSecond);
@@ -140,7 +145,7 @@ public class TickrateAPI {
      * @return The server tickrate or the client server tickrate if it doesn't have access to the real tickrate.
      */
     public static float getServerTickrate() {
-        return 1000F / TickrateChangerRezurrectionMod.MILISECONDS_PER_TICK;
+        return 1000F / TickrateChangerRezurrection.MILISECONDS_PER_TICK;
     }
 
     /**
@@ -148,6 +153,6 @@ public class TickrateAPI {
      * @return The client tickrate
      */
     public static float getClientTickrate() {
-        return TickrateChangerRezurrectionMod.TICKS_PER_SECOND;
+        return TickrateChangerRezurrection.TICKS_PER_SECOND;
     }
 }
