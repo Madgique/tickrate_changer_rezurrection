@@ -1,9 +1,10 @@
 package com.lmagickl.tickratechangerrezurrection.forge;
 
-import com.lmagickl.tickratechangerrezurrection.TickrateChangerRezurrection;
-import me.shedaniel.architectury.platform.forge.EventBuses;
+import dev.architectury.platform.forge.EventBuses;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+
+import com.lmagickl.tickratechangerrezurrection.TickrateChangerRezurrection;
 
 @Mod(TickrateChangerRezurrection.MOD_ID)
 public final class ExampleModForge {
@@ -12,6 +13,6 @@ public final class ExampleModForge {
         EventBuses.registerModEventBus(TickrateChangerRezurrection.MOD_ID, FMLJavaModLoadingContext.get().getModEventBus());
 
         // Run our common setup.
-        new TickrateChangerRezurrection().init();
+        TickrateChangerRezurrection.init();
     }
 }

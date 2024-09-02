@@ -1,8 +1,8 @@
 package com.lmagickl.tickratechangerrezurrection.mixin;
 
+import net.minecraft.client.Timer;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.gen.Accessor;
-import net.minecraft.client.Timer;
 
 @Mixin(Timer.class)
 public interface TimerAccessor {

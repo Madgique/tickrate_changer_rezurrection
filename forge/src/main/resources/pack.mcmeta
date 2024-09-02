@@ -1,6 +1,7 @@
 {
   "pack": {
     "description": "Tickrate Changer Rezurrection",
-    "pack_format": 6
+    "forge:data_pack_format": 9,
+    "pack_format": 8
   }
 }

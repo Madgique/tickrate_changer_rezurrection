@@ -1,15 +1,13 @@
 package com.lmagickl.tickratechangerrezurrection.api;
 
 import com.lmagickl.tickratechangerrezurrection.TickrateChangerRezurrection;
-
 import com.lmagickl.tickratechangerrezurrection.TickrateMessage;
+import dev.architectury.networking.NetworkManager;
+import dev.architectury.platform.Platform;
+import dev.architectury.utils.Env;
 import io.netty.buffer.Unpooled;
-import me.shedaniel.architectury.networking.NetworkManager;
-import me.shedaniel.architectury.platform.Platform;
-import me.shedaniel.architectury.utils.Env;
 import net.minecraft.client.Minecraft;
 import net.minecraft.network.FriendlyByteBuf;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.player.Player;

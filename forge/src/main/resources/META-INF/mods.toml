@@ -1,5 +1,5 @@
 modLoader = "javafml"
-loaderVersion = "[36,)"
+loaderVersion = "[40,)"
 #issueTrackerURL = ""
 license = "Insert License Here"
 
@@ -16,20 +16,20 @@ This is an example description! Tell everyone what your mod is about!
 [[dependencies.tickrate_changer_rezurrection]]
 modId = "forge"
 mandatory = true
-versionRange = "[36,)"
+versionRange = "[40,)"
 ordering = "NONE"
 side = "BOTH"
 
 [[dependencies.tickrate_changer_rezurrection]]
 modId = "minecraft"
 mandatory = true
-versionRange = "[1.16.5,)"
+versionRange = "[1.18.2,)"
 ordering = "NONE"
 side = "BOTH"
 
 [[dependencies.tickrate_changer_rezurrection]]
 modId = "architectury"
 mandatory = true
-versionRange = "[1.32.68,)"
+versionRange = "[4.12.94,)"
 ordering = "AFTER"
 side = "BOTH"
