@@ -1,9 +1,6 @@
 package com.lmagickl.tickratechangerrezurrection;
 
-import me.shedaniel.architectury.networking.NetworkManager;
 import net.minecraft.network.FriendlyByteBuf;
-
-import java.util.function.Supplier;
 
 public class TickrateMessage  {
     private float tickrate;

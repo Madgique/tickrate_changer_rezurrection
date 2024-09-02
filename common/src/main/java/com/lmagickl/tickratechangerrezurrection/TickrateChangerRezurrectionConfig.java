@@ -1,14 +1,13 @@
 package com.lmagickl.tickratechangerrezurrection;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import dev.architectury.platform.Platform;
+
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-
-import me.shedaniel.architectury.platform.Platform;
 
 public class TickrateChangerRezurrectionConfig {
     public static void save() {
