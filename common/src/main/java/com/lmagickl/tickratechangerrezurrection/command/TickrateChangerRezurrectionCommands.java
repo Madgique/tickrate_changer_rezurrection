@@ -1,6 +1,6 @@
 package com.lmagickl.tickratechangerrezurrection.command;
 
-import com.lmagickl.tickratechangerrezurrection.TickrateChangerRezurrectionMod;
+import com.lmagickl.tickratechangerrezurrection.TickrateChangerRezurrection;
 import com.lmagickl.tickratechangerrezurrection.api.TickrateAPI;
 import com.mojang.brigadier.Command;
 import com.mojang.brigadier.CommandDispatcher;
@@ -10,8 +10,6 @@ import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.commands.Commands;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.MinecraftServer;
-import net.minecraft.server.level.ServerLevel;
-import net.minecraft.world.level.GameRules;
 
 public class TickrateChangerRezurrectionCommands {
   public static void register(CommandDispatcher<CommandSourceStack> dispatcher) {
@@ -34,7 +32,6 @@ public class TickrateChangerRezurrectionCommands {
   private static int changeTickrate(CommandContext<CommandSourceStack> context) {
     int tickrate = IntegerArgumentType.getInteger(context, "ticks");
     MinecraftServer server = context.getSource().getServer();
-    TickrateChangerRezurrectionMod.LOGGER.info("test" + tickrate);
     TickrateAPI.changeTickrate(tickrate, server);
     return Command.SINGLE_SUCCESS;
   }

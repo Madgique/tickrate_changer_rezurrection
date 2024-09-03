@@ -12,14 +12,14 @@ import dev.architectury.platform.Platform;
 
 public class TickrateChangerRezurrectionConfig {
   public static void save() {
-    File file = new File(Platform.getConfigFolder() + File.separator + TickrateChangerRezurrectionMod.MOD_ID + ".json");
+    File file = new File(Platform.getConfigFolder() + File.separator + TickrateChangerRezurrection.MOD_ID + ".json");
     if (!file.exists()) {
       create(file);
     }
     Gson gson = new GsonBuilder().setPrettyPrinting().create();
     try {
       FileReader reader = new FileReader(file);
-      TickrateChangerRezurrectionMod.CONFIG = gson.fromJson(reader, TickrateChangerRezurrectionConfig.class);
+      TickrateChangerRezurrection.CONFIG = gson.fromJson(reader, TickrateChangerRezurrectionConfig.class);
       reader.close();
     } catch (Exception e) {
       e.printStackTrace();
@@ -31,7 +31,7 @@ public class TickrateChangerRezurrectionConfig {
     Gson gson = new GsonBuilder().setPrettyPrinting().create();
     try {
       FileWriter fileWriter = new FileWriter(file);
-      gson.toJson(TickrateChangerRezurrectionMod.CONFIG, fileWriter);
+      gson.toJson(TickrateChangerRezurrection.CONFIG, fileWriter);
       fileWriter.close();
     } catch (IOException e) {
       e.printStackTrace();

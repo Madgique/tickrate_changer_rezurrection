@@ -1,10 +1,12 @@
 package com.lmagickl.tickratechangerrezurrection;
 
+import net.minecraft.network.FriendlyByteBuf;
+
 public class TickrateMessage  {
     private float tickrate;
 
-    public TickrateMessage () {
-        // Message creation
+    public TickrateMessage(FriendlyByteBuf buf) {
+        this.tickrate = buf.readFloat();
     }
 
     public TickrateMessage(float tickrate) {
@@ -14,7 +16,14 @@ public class TickrateMessage  {
     public float getTickrate() {
         return tickrate;
     }
-   /* public void encode(FriendlyByteBuf buf) {
+
+    public void encode(FriendlyByteBuf buf) {
         buf.writeFloat(tickrate);
-    }*/
+    }
+
+    public static TickrateMessage decode(FriendlyByteBuf buf) {
+        float tickrate = buf.readFloat();
+
+        return new TickrateMessage(tickrate);
+    }
 }
