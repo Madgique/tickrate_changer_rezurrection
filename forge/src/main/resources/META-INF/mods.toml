@@ -4,7 +4,7 @@ loaderVersion = "[47,)"
 license = "Insert License Here"
 
 [[mods]]
-modId = "tickratechangerrezurrection"
+modId = "tickrate_changer_rezurrection"
 version = "${version}"
 displayName = "TickrateChangerRezurrection"
 authors = "Me!"
@@ -13,21 +13,21 @@ This is an example description! Tell everyone what your mod is about!
 '''
 #logoFile = ""
 
-[[dependencies.tickratechangerrezurrection]]
+[[dependencies.tickrate_changer_rezurrection]]
 modId = "forge"
 mandatory = true
 versionRange = "[47,)"
 ordering = "NONE"
 side = "BOTH"
 
-[[dependencies.tickratechangerrezurrection]]
+[[dependencies.tickrate_changer_rezurrection]]
 modId = "minecraft"
 mandatory = true
 versionRange = "[1.20.1,)"
 ordering = "NONE"
 side = "BOTH"
 
-[[dependencies.tickratechangerrezurrection]]
+[[dependencies.tickrate_changer_rezurrection]]
 modId = "architectury"
 mandatory = true
 versionRange = "[9.2.14,)"
