@@ -5,7 +5,7 @@ import me.shedaniel.architectury.networking.NetworkManager;
 
 import static com.lmagickl.tickratechangerrezurrection.TickrateChangerRezurrection.LOGGER;
 
-public class TickrateChangeRezurrectionNetwork {
+public class TickrateChangerRezurrectionNetwork {
 
     public static void registerPackets() {
         NetworkManager.registerReceiver(NetworkManager.Side.S2C, TickrateChangerRezurrection.TICKRATE, ((buf, context) -> {
