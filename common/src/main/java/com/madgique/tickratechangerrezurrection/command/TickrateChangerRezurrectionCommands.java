@@ -1,7 +1,9 @@
-package com.lmagickl.tickratechangerrezurrection.command;
+package com.madgique.tickratechangerrezurrection.command;
 
-import com.lmagickl.tickratechangerrezurrection.TickrateChangerRezurrection;
-import com.lmagickl.tickratechangerrezurrection.api.TickrateAPI;
+import com.madgique.tickratechangerrezurrection.TickrateChangerRezurrection;
+import com.madgique.tickratechangerrezurrection.api.TickrateAPI;
+import com.madgique.tickratechangerrezurrection.config.ClothConfigGUIBuilder;
+import com.madgique.tickratechangerrezurrection.config.TickrateChangerRezurrectionConfig;
 import com.mojang.brigadier.Command;
 import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.arguments.IntegerArgumentType;
@@ -53,7 +55,7 @@ public class TickrateChangerRezurrectionCommands {
     private static int showInfo(CommandSourceStack source) {
         float currentClientTickrate = TickrateAPI.getClientTickrate();
         float currentServerTickrate = TickrateAPI.getServerTickrate();
-        float defaultTickrate = TickrateChangerRezurrection.DEFAULT_TICKRATE;
+        float defaultTickrate = TickrateChangerRezurrection.CONFIG.defaultTickrate;
         String SPACE = " ";
 
         Style currentMessagesStyle = Style.EMPTY.withColor(GREEN);

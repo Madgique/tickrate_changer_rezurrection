@@ -40,6 +40,8 @@ dependencies {
 processResources {
     inputs.property 'mod_version', project.version
     inputs.property 'mod_id', project.mod_id
+    inputs.property 'maven_group', project.maven_group
+    inputs.property 'mod_class_name', project.mod_class_name
     inputs.property 'mixin_files', project.mixin_files
 
 
@@ -54,6 +56,8 @@ processResources {
     filesMatching('fabric.mod.json') {
         expand mod_version: project.version,
                 mod_id: mod_id,
+                maven_group: maven_group,
+                mod_class_name: mod_class_name,
                 mixin_files: mixin_files,
 
                 mod_description: mod_description,

@@ -1,6 +1,6 @@
-package com.lmagickl.tickratechangerrezurrection.fabric;
+package com.madgique.tickratechangerrezurrection.fabric;
 
-import com.lmagickl.tickratechangerrezurrection.TickrateChangerRezurrection;
+import com.madgique.tickratechangerrezurrection.TickrateChangerRezurrection;
 import net.fabricmc.api.ModInitializer;
 
 public final class TickrateChangerRezurrectionFabric implements ModInitializer {

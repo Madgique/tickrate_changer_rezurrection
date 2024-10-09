@@ -1,6 +1,6 @@
-package com.lmagickl.tickratechangerrezurrection;
+package com.madgique.tickratechangerrezurrection.handlers;
 
-import com.lmagickl.tickratechangerrezurrection.command.TickrateChangerRezurrectionCommands;
+import com.madgique.tickratechangerrezurrection.command.TickrateChangerRezurrectionCommands;
 import com.mojang.brigadier.CommandDispatcher;
 
 import me.shedaniel.architectury.event.events.CommandRegistrationEvent;
@@ -10,7 +10,7 @@ import net.minecraft.commands.Commands;
 public enum TickrateChangerRezurrectionEventHandler {
     INSTANCE;
 
-    void init() {
+    public void init() {
         CommandRegistrationEvent.EVENT.register(this::registerCommands);
 
     }

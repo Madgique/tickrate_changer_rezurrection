@@ -23,7 +23,6 @@
   "mixins": [
     "${mixin_files}"
   ],
-  "accessWidener": "${mod_id}.accessWidener",
   "depends": {
     "fabricloader": ">=0.16.2",
     "minecraft": "~1.16.5",
