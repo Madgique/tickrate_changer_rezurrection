@@ -1,4 +1,4 @@
-# TickrateChanger
+# Tickrate Changer Rezurrection
 
 TickrateChanger allows you to change the server/client tickrate.
 
@@ -10,4 +10,4 @@ TickrateChanger allows you to change the server/client tickrate.
 
 ## Commands
 
-Refer to the [Commands](#commands) section for a complete list of commands available in TickrateChanger.
+Refer to the [Commands](https://github.com/Madgique/tickrate_changer_rezurrection/wiki/Commands) section for a complete list of commands available in TickrateChanger.
