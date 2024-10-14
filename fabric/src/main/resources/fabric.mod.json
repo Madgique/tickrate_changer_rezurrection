@@ -6,7 +6,8 @@
   "description": "${mod_description}",
   "authors": ["${mod_authors}"],
   "contact": {
-    "homepage": "https://fabricmc.net/",
+    "homepage": "${mod_public_url}",
+    "issues": "${mod_issue_tracker_url}",
     "sources": "${mod_sources}"
   },
   "license": "${mod_license}",
@@ -18,6 +19,10 @@
     ],
     "client": [
       "${maven_group}.fabric.client.${mod_class_name}FabricClient"
+    ],
+
+    "modmenu": [
+      "${maven_group}.fabric.ClothConfigFabric"
     ]
   },
   "mixins": [

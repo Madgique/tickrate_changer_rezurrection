@@ -1,6 +1,9 @@
 package com.madgique.tickratechangerrezurrection.fabric;
 
 import com.madgique.tickratechangerrezurrection.TickrateChangerRezurrection;
+import com.madgique.tickratechangerrezurrection.config.TickrateChangerRezurrectionConfig;
+import me.shedaniel.autoconfig.AutoConfig;
+import me.shedaniel.autoconfig.serializer.GsonConfigSerializer;
 import net.fabricmc.api.ModInitializer;
 
 public final class TickrateChangerRezurrectionFabric implements ModInitializer {
@@ -11,6 +14,8 @@ public final class TickrateChangerRezurrectionFabric implements ModInitializer {
         // Proceed with mild caution.
 
         // Run our common setup.
+        AutoConfig.register(TickrateChangerRezurrectionConfig.class, GsonConfigSerializer::new);
+
         new TickrateChangerRezurrection().init();
     }
 }
