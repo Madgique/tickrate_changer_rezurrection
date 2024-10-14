@@ -24,18 +24,61 @@ public class TickrateChangerRezurrectionCommands {
                 .then(Commands.literal("help")
                         .executes(context -> showHelp(context.getSource()))
                 )
-                .then(Commands.argument("ticks", IntegerArgumentType.integer())
-                        .executes(c -> changeTickrate(c))
+                .then(Commands.literal("setdefault")
+                        .then(Commands.argument("ticks", IntegerArgumentType.integer())
+                                .executes(context -> setDefaultTickrate(context,  true))
+                                .then(Commands.literal("--dontsave")
+                                        .executes(context -> setDefaultTickrate(context, false))
+                                )
+                        )
                 )
-                .executes(context -> {
-                    return showInfo(context.getSource());
-//                    context.getSource().sendFailure(new TextComponentString("Usage: /tickrate [ticks per second] [all/server/client/playername]"));
-                })
+                .then(Commands.argument("ticks", IntegerArgumentType.integer())
+                        .executes(context -> changeTickrate(context))
+                )
+                .executes(context -> showInfo(context.getSource()))
         );
+
+        // Alias /ticks
+        dispatcher.register(Commands.literal("ticks")
+                .requires(s -> s.getServer() != null && s.getServer().isSingleplayer() || hasChangeTickratePermission(s))
+                .redirect(dispatcher.getRoot().getChild("tickrate"))
+                .executes(context -> showInfo(context.getSource()))
+
+        );
+
+        // Alias /tickratechanger
+        dispatcher.register(Commands.literal("tickratechanger")
+                .requires(s -> s.getServer() != null && s.getServer().isSingleplayer() || hasChangeTickratePermission(s))
+                .redirect(dispatcher.getRoot().getChild("tickrate"))
+                .executes(context -> showInfo(context.getSource()))
+        );
+
+        // Alias /trc
+        dispatcher.register(Commands.literal("trc")
+                .requires(s -> s.getServer() != null && s.getServer().isSingleplayer() || hasChangeTickratePermission(s))
+                .redirect(dispatcher.getRoot().getChild("tickrate"))
+                .executes(context -> showInfo(context.getSource()))
+
+        );
+
+        // Alias /settickrate
+        dispatcher.register(Commands.literal("settickrate")
+                .requires(s -> s.getServer() != null && s.getServer().isSingleplayer() || hasChangeTickratePermission(s))
+                .redirect(dispatcher.getRoot().getChild("tickrate"))
+                .executes(context -> showInfo(context.getSource()))
+
+        );
+
     }
 
     private static boolean hasChangeTickratePermission(CommandSourceStack stack) {
         return stack.hasPermission(2);
+    }
+
+    private static int setDefaultTickrate(CommandContext<CommandSourceStack> context, boolean willSave) {
+        int tickrate = IntegerArgumentType.getInteger(context, "ticks");
+        TickrateAPI.changeDefaultTickrate(tickrate, willSave);
+        return Command.SINGLE_SUCCESS;
     }
 
     private static int changeTickrate(CommandContext<CommandSourceStack> context) {
