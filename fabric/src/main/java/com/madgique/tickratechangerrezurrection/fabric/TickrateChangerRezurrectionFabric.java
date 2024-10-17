@@ -1,8 +1,8 @@
-package com.lmagickl.tickratechangerrezurrection.fabric;
+package com.madgique.tickratechangerrezurrection.fabric;
 
 import net.fabricmc.api.ModInitializer;
 
-import com.lmagickl.tickratechangerrezurrection.TickrateChangerRezurrection;
+import com.madgique.tickratechangerrezurrection.TickrateChangerRezurrection;
 
 public final class TickrateChangerRezurrectionFabric implements ModInitializer {
     @Override

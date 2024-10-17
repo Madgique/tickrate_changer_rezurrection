@@ -1,4 +1,4 @@
-package com.lmagickl.tickratechangerrezurrection;
+package com.madgique.tickratechangerrezurrection.network;
 
 import net.minecraft.network.FriendlyByteBuf;
 

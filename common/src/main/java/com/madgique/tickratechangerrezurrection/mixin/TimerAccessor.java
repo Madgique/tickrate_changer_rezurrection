@@ -1,4 +1,4 @@
-package com.lmagickl.tickratechangerrezurrection.mixin;
+package com.madgique.tickratechangerrezurrection.mixin;
 
 import net.minecraft.client.Timer;
 import org.spongepowered.asm.mixin.Mixin;

@@ -1,7 +1,9 @@
-package com.lmagickl.tickratechangerrezurrection.api;
+package com.madgique.tickratechangerrezurrection.api;
 
-import com.lmagickl.tickratechangerrezurrection.TickrateChangerRezurrection;
-import com.lmagickl.tickratechangerrezurrection.TickrateMessage;
+import com.madgique.tickratechangerrezurrection.TickrateChangerRezurrection;
+
+import com.madgique.tickratechangerrezurrection.config.TickrateChangerRezurrectionConfig;
+import com.madgique.tickratechangerrezurrection.network.TickrateMessage;
 import dev.architectury.networking.NetworkManager;
 import dev.architectury.platform.Platform;
 import dev.architectury.utils.Env;
@@ -11,6 +13,7 @@ import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.player.Player;
+import me.shedaniel.autoconfig.AutoConfig;
 
 
 public class TickrateAPI {
@@ -20,7 +23,7 @@ public class TickrateAPI {
      * @param ticksPerSecond Tickrate to be set
      */
     public static void changeTickrate(float ticksPerSecond, MinecraftServer server) {
-        changeTickrate(ticksPerSecond, server, TickrateChangerRezurrection.SHOW_MESSAGES);
+        changeTickrate(ticksPerSecond, server, TickrateChangerRezurrection.CONFIG.showMessages);
     }
 
     /**
@@ -42,7 +45,7 @@ public class TickrateAPI {
      * @param ticksPerSecond Tickrate to be set
      */
     public static void changeServerTickrate(float ticksPerSecond) {
-        changeServerTickrate(ticksPerSecond, TickrateChangerRezurrection.SHOW_MESSAGES);
+        changeServerTickrate(ticksPerSecond, TickrateChangerRezurrection.CONFIG.showMessages);
     }
 
     /**
@@ -63,7 +66,7 @@ public class TickrateAPI {
      * @param ticksPerSecond Tickrate to be set
      */
     public static void changeClientTickrate(float ticksPerSecond, MinecraftServer server) {
-        changeClientTickrate(ticksPerSecond, server, TickrateChangerRezurrection.SHOW_MESSAGES);
+        changeClientTickrate(ticksPerSecond, server, TickrateChangerRezurrection.CONFIG.showMessages);
     }
 
     /**
@@ -91,7 +94,7 @@ public class TickrateAPI {
      * @param ticksPerSecond Tickrate to be set
      */
     public static void changeClientTickrate(Player player, float ticksPerSecond) {
-        changeClientTickrate(player, ticksPerSecond, TickrateChangerRezurrection.SHOW_MESSAGES);
+        changeClientTickrate(player, ticksPerSecond, TickrateChangerRezurrection.CONFIG.showMessages);
     }
 
     /**
@@ -125,17 +128,9 @@ public class TickrateAPI {
      * @param save           If will be saved in the config file
      */
     public static void changeDefaultTickrate(float ticksPerSecond, boolean save) {
-        TickrateChangerRezurrection.DEFAULT_TICKRATE = ticksPerSecond;
-        /*
-         * if (save) {
-         * Configuration cfg = new
-         * Configuration(TickrateChangerRezurrection.CONFIG_FILE);
-         * cfg.get("default", "tickrate", 20.0,
-         * "Default tickrate. The game will always initialize with this value.")
-         * .set(ticksPerSecond);
-         * cfg.save();
-         * }
-         */
+        TickrateChangerRezurrection.CONFIG.defaultTickrate = ticksPerSecond;
+        if (save)
+            AutoConfig.getConfigHolder(TickrateChangerRezurrectionConfig.class).save();
     }
 
     /**

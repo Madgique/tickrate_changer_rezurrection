@@ -1,4 +1,4 @@
-package com.lmagickl.tickratechangerrezurrection;
+package com.madgique.tickratechangerrezurrection;
 
 public interface TickrateChanger {
     void changeClientTickrate(float f, long l);
