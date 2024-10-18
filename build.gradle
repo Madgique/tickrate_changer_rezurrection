@@ -8,9 +8,46 @@ architectury {
     minecraft = project.minecraft_version
 }
 
+// Mode info
+
+def loadPropertiesFromFile(File file) {
+    def props = new Properties()
+    file.withInputStream { stream ->
+        props.load(stream)
+    }
+    return props
+}
+
+// Liste des fichiers de propriétés à charger
+def propertiesFile = file('mod.info.gradle.properties')
+
+def combinedProperties = new Properties()
+
+if (propertiesFile.exists()) {
+    def props = loadPropertiesFromFile(propertiesFile)
+    combinedProperties.putAll(props)
+}
+
+// Appliquer les propriétés combinées au projet
+combinedProperties.each { key, value ->
+    project.ext[key] = value
+}
+
 allprojects {
-    group = rootProject.maven_group
-    version = rootProject.mod_version
+    group = project.maven_group
+    version = project.mod_version
+    ext {
+        mod_id = project.archives_name
+        mod_class_name = project.mod_class_name
+
+        mod_display_name = project.mod_display_name
+        mod_description = project.mod_description
+        mod_authors = project.mod_authors
+        mod_credits = project.mod_credits
+        mod_license = project.mod_license
+        mod_sources = project.mod_sources
+        mod_issue_tracker_url = project.mod_issue_tracker_url
+    }
 }
 
 subprojects {
