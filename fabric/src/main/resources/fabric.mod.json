@@ -1,29 +1,31 @@
 {
   "schemaVersion": 1,
-  "id": "tickrate_changer_rezurrection",
-  "version": "${version}",
-  "name": "Tickrate Changer Rezurrection",
-  "description": "This is an example description! Tell everyone what your mod is about!",
-  "authors": [
-    "Me!"
-  ],
+  "id": "${mod_id}",
+  "version": "${mod_version}",
+  "name": "${mod_display_name}",
+  "description": "${mod_description}",
+  "authors": ["${mod_authors}"],
   "contact": {
-    "homepage": "https://fabricmc.net/",
-    "sources": "https://github.com/FabricMC/fabric-example-mod"
+    "homepage": "${mod_public_url}",
+    "issues": "${mod_issue_tracker_url}",
+    "sources": "${mod_sources}"
   },
-  "license": "CC0-1.0",
-  "icon": "../../../../common/src/main/resources/assets/tickrate_changer_rezurrection/icon.png",
+  "license": "${mod_license}",
+  "icon": "assets/${mod_id}/icon.png",
   "environment": "*",
   "entrypoints": {
     "main": [
-      "com.lmagickl.tickratechangerrezurrection.fabric.TickrateChangerRezurrectionFabric"
+      "${maven_group}.fabric.${mod_class_name}Fabric"
     ],
     "client": [
-      "com.lmagickl.tickratechangerrezurrection.fabric.client.TickrateChangerRezurrectionFabricClient"
+      "${maven_group}.fabric.client.${mod_class_name}FabricClient"
+    ],
+    "modmenu": [
+      "${maven_group}.fabric.ClothConfigFabric"
     ]
   },
   "mixins": [
-    "tickrate_changer_rezurrection.mixins.json"
+    "${mixin_files}"
   ],
   "depends": {
     "fabricloader": ">=0.11.6",
